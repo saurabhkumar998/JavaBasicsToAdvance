@@ -87,7 +87,5 @@ public class LinkedListAndIteratorDemo {
             System.out.println(listIterator.previous());
         }
 
-
-
     }
 }
