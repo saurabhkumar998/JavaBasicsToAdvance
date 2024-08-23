@@ -10,11 +10,14 @@ public class Main {
 		var multiExecutor = Executors.newCachedThreadPool();
 
 		try{
+			// execute() method takes a runnable and doesn't return anything
 			/*
 			multiExecutor.execute(() -> sum(1,10,1,"red"));
 			multiExecutor.execute(() -> sum(10,100,10,"blue"));
 			multiExecutor.execute(() -> sum(2,20,2,"green"));
 			 */
+
+			// the submit() method can take a runnable as well as a callable and returns a Future instance
 			var redValue = multiExecutor.submit(() -> sum(1,10,1,"red"));
 			var blueValue = multiExecutor.submit(() -> sum(10,100,10,"blue"));
 			var greenValue = multiExecutor.submit(() -> sum(2,20,2,"green"));
