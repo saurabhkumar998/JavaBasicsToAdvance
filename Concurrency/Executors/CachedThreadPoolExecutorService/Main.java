@@ -43,6 +43,7 @@ public class Main {
 
 		try{
 			// execute() method takes a runnable and doesn't return anything
+
 			/*
 			multiExecutor.execute(() -> sum(1,10,1,"red"));
 			multiExecutor.execute(() -> sum(10,100,10,"blue"));
