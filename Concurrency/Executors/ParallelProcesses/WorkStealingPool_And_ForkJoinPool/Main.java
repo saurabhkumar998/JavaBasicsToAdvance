@@ -43,7 +43,7 @@ class RecursiveSumTask extends RecursiveTask<Long> {
 	}
 }
 public class Main {
-	public static void main(String[] args) throws InterruptedException, ExecutionException {
+	public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
 		int numberLength = 100_000;
 		long[] numbers = new Random().longs(numberLength, 1, numberLength).toArray();
 
@@ -51,8 +51,11 @@ public class Main {
 
 		System.out.println("Sum = " +sum);
 
-		//ForkJoinPool threadPool = (ForkJoinPool) Executors.newWorkStealingPool(4);
-		ForkJoinPool threadPool = ForkJoinPool.commonPool();
+		// This is more configurable(we can manually set the no of cpu/parallelism) ForkJoinPool and can be used to do complex tasks
+		ForkJoinPool threadPool = (ForkJoinPool) Executors.newWorkStealingPool(4);
+
+		// this is an out of the box static method to create a ForkJoinPool, the no of parallelism is default and is same as the Runtime.getRuntime().availableProcessors()
+		//ForkJoinPool threadPool = ForkJoinPool.commonPool();
 
 		List<Callable<Long>>  tasks = new ArrayList<>();
 
